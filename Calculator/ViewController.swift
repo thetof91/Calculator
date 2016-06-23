@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Tags til buttons for at håndtere switch.
         buttonZero.tag = 0
         buttonOne.tag = 1
@@ -59,39 +59,39 @@ class ViewController: UIViewController {
     @IBAction func numberPressed(sender: AnyObject) {
         switch sender.tag {
         case 0: inputLabelValue += "0"
-        print("nul blev trykket")
+        print("Trykkede på 0")
             break
         case 1: inputLabelValue += "1"
-        print("1 blev trykket")
+        print("Trykkede på 1")
             break
         case 2: inputLabelValue += "2"
-        print("2 blev trykekt")
+        print("Trykkede på 2")
             break
         case 3: inputLabelValue += "3"
-        print("3 blev trykket")
+        print("Trykkede på 3")
             break
         case 4: inputLabelValue += "4"
-        print("4 blev trykket")
+        print("Trykkede på 4")
             break
         case 5: inputLabelValue += "5"
-        print("5 blev trykket")
+        print("Trykkede på 5")
             break
         case 6: inputLabelValue += "6"
-        print("6 blev trykket")
+        print("Trykkede på 6")
             break
         case 7: inputLabelValue += "7"
-        print("7 blev trykket")
+        print("Trykkede på 7")
             break
         case 8: inputLabelValue += "8"
-        print("8 blev trykket")
+        print("Trykkede på 8")
             break
         case 9: inputLabelValue += "9"
-        print("9 blev trykket")
+        print("Trykkede på 9")
             break
         case 10:
             if inputLabelValue.rangeOfString(".") == nil {
                 inputLabelValue += "."
-                print(". blev trykket")
+                print("Trykkede på ,")
             }
             break
         default: ()
@@ -116,7 +116,7 @@ class ViewController: UIViewController {
             if(inputOpreation == ""){
                 input1 = (inputLabelValue as NSString).doubleValue
                 inputOpreation = "+"
-                print("trykkede på +")
+                print("Trykkede på +")
                 inputLabelValue = ""
                 inputLabel.text = inputLabelValue
             }
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
             if(inputOpreation == ""){
                 input1 = (inputLabelValue as NSString).doubleValue
                 inputOpreation = "-"
-                print("trykkede på -")
+                print("Trykkede på -")
                 inputLabelValue = ""
                 inputLabel.text = inputLabelValue
             }
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
             if(inputOpreation == ""){
                 input1 = (inputLabelValue as NSString).doubleValue
                 inputOpreation = "*"
-                print("trykkede på *")
+                print("Trykkede på *")
                 inputLabelValue = ""
                 inputLabel.text = inputLabelValue
             }
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
             if(inputOpreation == ""){
                 input1 = (inputLabelValue as NSString).doubleValue
                 inputOpreation = "/"
-                print("trykkede på /")
+                print("Trykkede på /")
                 inputLabelValue = ""
                 inputLabel.text = inputLabelValue
             }
@@ -155,11 +155,9 @@ class ViewController: UIViewController {
     
     //Tager input1, input2 og operation og finder resultat og opdatere label med det.
     @IBAction func equalPressed(sender: AnyObject) {
-        print("= blev trykket")
-        print(inputOpreation)
+        print("Trykkede på =")
         input2 = (inputLabelValue as NSString).doubleValue
         if(inputOpreation == "+"){
-            print("test")
             let result = calculator.doPlus(input1, number2: input2)
             print(result)
             inputLabelValue = String(result)
@@ -183,5 +181,9 @@ class ViewController: UIViewController {
         input1 = 0.0
         input2 = 0.0
         inputOpreation = ""
+        if inputLabelValue.hasSuffix(".0"){
+            inputLabelValue = String(inputLabelValue.characters.dropLast(2))
+            inputLabel.text = inputLabelValue
+        }
     }
 }
