@@ -1,11 +1,11 @@
 # Calculator
 ## Synopsis
 
-Simple Calculator iOS Swift. Small project for Visma Wallmob.
+Simple Calculator iOS Swift.
 
 ## Motivation
 
-Project is made as a tryout for Visma Wallmob.
+Project is made as a tryout for a company
 
 ## Tests
 
