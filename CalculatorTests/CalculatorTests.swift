@@ -11,26 +11,33 @@ import XCTest
 
 class CalculatorTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+   let calculator = Calculations()
+    
+    func testMinus() {
+        let number1 = 3.3
+        let number2 = 10.3
+        let result = calculator.doMinus(number1, number2: number2)
+        XCTAssert(result == 7.0)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testPlus() {
+        let number1 = 5.5
+        let number2 = 10.3
+        let result = calculator.doPlus(number1, number2: number2)
+        XCTAssert(result == 15.8)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDivide() {
+        let number1 = 7.0
+        let number2 = 2.5
+        let result = calculator.doDivide(number1, number2: number2)
+        XCTAssert(result == 2.8)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testMultiply() {
+        let number1 = 3.0
+        let number2 = 33.0
+        let result = calculator.doMultiply(number1, number2: number2)
+        XCTAssert(result == 99.0)
     }
-    
 }
